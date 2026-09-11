@@ -59,6 +59,7 @@ The database logic and transformation orchestration are modularized across struc
 
 ## Repository Structure
 
+.```text
 .
 ├── scripts/
 │   ├── init_database.sql           # Database & schema creation (bronze, silver, gold)
