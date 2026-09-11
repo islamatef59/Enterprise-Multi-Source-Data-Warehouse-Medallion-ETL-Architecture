@@ -9,24 +9,27 @@ This repository delivers an end-to-end Enterprise Data Warehouse built using Mic
 * **Bronze Layer (Raw Ingestion):** Ingests raw CSV source files directly into staging tables using optimized `BULK INSERT` operations.
 * **Silver Layer (Cleansing & Standardization):** Applies data quality enforcement, deduplication using `ROW_NUMBER()`, data type casting, character bounds validation, and field normalization.
 * **Gold Layer (Star Schema Presentation):** Models cleansed entities into reporting dimensions (`gold.dim_customers`, `gold.dim_products`) and a centralized fact table (`gold.fact_sales`).
-* 
----
-[ CRM Source ]       [ ERP Source ]
-         │                    │
-         ▼                    ▼
- ┌────────────────────────────────┐
- │          BRONZE LAYER          │  (Raw Ingestion / Full Load)
- └───────────────┬────────────────┘
-                 │
-                 ▼
- ┌────────────────────────────────┐
- │          SILVER LAYER          │  (Data Cleansing & Quality Rules)
- └───────────────┬────────────────┘
-                 │
-                 ▼
- ┌────────────────────────────────┐
- │           GOLD LAYER           │  (Star Schema: Dimensions & Fact Tables)
- └────────────────────────────────┘
+Markdown
+## Architecture & Schema Overview
+
+```text
+       [ CRM Source ]       [ ERP Source ]
+             │                    │
+             ▼                    ▼
+     ┌────────────────────────────────┐
+     │          BRONZE LAYER          │  (Raw Ingestion / Full Load)
+     └───────────────┬────────────────┘
+                     │
+                     ▼
+     ┌────────────────────────────────┐
+     │          SILVER LAYER          │  (Data Cleansing & Quality Rules)
+     └───────────────┬────────────────┘
+                     │
+                     ▼
+     ┌────────────────────────────────┐
+     │           GOLD LAYER           │  (Star Schema: Dimensions & Fact Tables)
+     └────────────────────────────────┘
+```
 
 ## Architecture & Schema Overview
 
