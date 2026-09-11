@@ -59,21 +59,22 @@ The database logic and transformation orchestration are modularized across struc
 
 ## Repository Structure
 
-.```text
-.
-├── scripts/
-│   ├── init_database.sql           # Database & schema creation (bronze, silver, gold)
-│   ├── bronze/
-│   │   ├── ddl_bronze.sql          # Raw staging tables DDL
-│   │   └── procedure_load_bronze.sql# BULK INSERT orchestration procedure
-│   ├── silver/
-│   │   ├── ddl_silver.sql          # Cleansed silver tables DDL (with character bounds validation)
-│   │   └── procedure_load_silver.sql# Transformation, quality rules & deduplication
-│   ├── gold/
-│   │   └── ddl_gold.sql            # Star schema views (dim_customers, dim_products, fact_sales)
-│   └── tests/
-│       └── check_gold.sql          # PK uniqueness & fact-dimension integrity checks
-└── README.md
+```markdown
+## Repository Structure
+
+* **`scripts/`**
+  * **`init_database.sql`**: Database & schema creation (`bronze`, `silver`, `gold`).
+  * **`bronze/`**
+    * `ddl_bronze.sql`: Raw staging tables DDL.
+    * `procedure_load_bronze.sql`: BULK INSERT orchestration procedure.
+  * **`silver/`**
+    * `ddl_silver.sql`: Cleansed silver tables DDL (with character bounds validation).
+    * `procedure_load_silver.sql`: Transformation, quality rules & deduplication.
+  * **`gold/`**
+    * `ddl_gold.sql`: Star schema views (`dim_customers`, `dim_products`, `fact_sales`).
+  * **`tests/`**
+    * `check_gold.sql`: Primary key uniqueness & fact-dimension integrity checks.
+* **`README.md`**: Project documentation and pipeline execution guide.
 
 ## Getting Started
 
