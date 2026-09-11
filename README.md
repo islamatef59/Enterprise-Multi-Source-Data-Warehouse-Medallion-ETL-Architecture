@@ -6,6 +6,10 @@ Architecture.
 
 This repository delivers an end-to-end Enterprise Data Warehouse built using Microsoft SQL Server and T-SQL. The platform ingests, cleanses, transforms, and models disjointed source datasets (CRM & ERP) into a consolidated, single source of truth using a 3-tier **Medallion Architecture** (Bronze, Silver, Gold).
 
+* **Bronze Layer (Raw Ingestion):** Ingests raw CSV source files directly into staging tables using optimized `BULK INSERT` operations.
+* **Silver Layer (Cleansing & Standardization):** Applies data quality enforcement, deduplication using `ROW_NUMBER()`, data type casting, character bounds validation, and field normalization.
+* **Gold Layer (Star Schema Presentation):** Models cleansed entities into reporting dimensions (`gold.dim_customers`, `gold.dim_products`) and a centralized fact table (`gold.fact_sales`).
+* 
 ---
 [ CRM Source ]       [ ERP Source ]
          │                    │
